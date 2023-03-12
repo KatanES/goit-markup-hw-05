@@ -3,6 +3,7 @@
   --primary-header-color: #2e2f42;
   --pressed-state-color: #4d5ae5;
   --primary-background-color: #2e2f42;
+  --primary-active-color: #404bbf;
 }
 
 body {
@@ -178,14 +179,16 @@ a {
   content: "";
   width: 100%;
   height: 4px;
-  background: #404bbf;
+  background: var(--primary-active-color);
   border-radius: 2px;
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
-.active
+.active {
+  color: var(--primary-active-color);
+}
 
 /* Contacts-nav */
 
@@ -254,7 +257,7 @@ a {
 }
 
 .hero-button:is(:hover, :focus) {
-  background-color: #404bbf;
+  background-color: var(--primary-active-color);
 }
 
 /* main section */
@@ -379,7 +382,7 @@ a {
 }
 
 .team-social-link:is(:hover, :focus) {
-  background-color: #404bbf;
+  background-color: var(--primary-active-color);
 }
 
 /* CUSTOMERS */
@@ -412,16 +415,15 @@ a {
 }
 
 .customer:is(:hover, :focus) {
-  border: 1px solid #404bbf;
+  border: 1px solid var(--primary-active-color);
 }
 
 .customer:hover .customer-link-item {
-  fill: #404bbf;
+  fill: var(--primary-active-color);
 }
 
 .customer-link-item {
   fill: #8e8f99;
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-link {
@@ -430,6 +432,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* footer section */
@@ -521,7 +524,7 @@ a {
 }
 
 .active-button:is(:hover, :focus) {
-  background-color: #404bbf;
+  background-color: var(--primary-active-color);
   color: #ffffff;
 }
 
@@ -558,8 +561,12 @@ a {
   background-color: #bdbdbd;
 
   overflow: hidden;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
+
+/* transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1); */
 
 .box:hover .overlay {
   transform: translatex(0);
@@ -567,6 +574,8 @@ a {
 
 .examples-list .item:hover .overlay {
   transform: translatex(0);
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .overlay {
@@ -576,10 +585,8 @@ a {
   width: 100%;
   height: 100%;
   background-color: #4d5ae5;
-
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 .overlay > p {
